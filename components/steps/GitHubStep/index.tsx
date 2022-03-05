@@ -6,10 +6,10 @@ import { StepInfo } from '../../StepInfo';
 
 import styles from './GitHubStep.module.scss';
 import React from 'react';
-import { MainContext, UserData } from '../../../pages';
+//import { MainContext, UserData } from '../../../pages';
 
 export const GitHubStep: React.FC = () => {
-  const { onNextStep, setUserData } = React.useContext(MainContext);
+  //const { onNextStep, setUserData } = React.useContext(MainContext);
 
   const onClickAuth = () => {
     window.open(
@@ -19,7 +19,7 @@ export const GitHubStep: React.FC = () => {
     );
   };
 
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     window.addEventListener('message', ({ data, origin }) => {
       const user: string = data;
       if (typeof user === 'string' && user.includes('avatarUrl')) {
@@ -31,7 +31,7 @@ export const GitHubStep: React.FC = () => {
       }
     });
   }, []);
-
+ */
   return (
     <div className={styles.block}>
       <StepInfo icon="/static/connect.png" title="Do you want import info from GitHub?" />
