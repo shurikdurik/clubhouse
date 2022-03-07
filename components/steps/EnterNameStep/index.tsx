@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button';
+import { Button } from '../../Button/Index';
 import { StepInfo } from '../../StepInfo';
 
 import styles from './EnterNameStep.module.scss';

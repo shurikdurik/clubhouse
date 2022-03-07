@@ -2,12 +2,12 @@ import React from 'react';
 import clsx from 'clsx';
 import NumberFormat from 'react-number-format';
 import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button';
+import { Button } from '../../Button/Index';
 import { StepInfo } from '../../StepInfo';
 
 import styles from './EnterPhoneStep.module.scss';
-import { MainContext } from '../../../pages';
-import { Axios } from '../../../core/axios';
+//import { MainContext } from '../../../pages';
+//import { Axios } from '../../../core/axios';
 
 type InputValueState = {
   formattedValue: string;
@@ -15,13 +15,13 @@ type InputValueState = {
 };
 
 export const EnterPhoneStep = () => {
-  const { onNextStep, setFieldValue } = React.useContext(MainContext);
+  //const { onNextStep, setFieldValue } = React.useContext(MainContext);
   const [isLoading, setIsLoading] = React.useState(false);
   const [values, setValues] = React.useState<InputValueState>({} as InputValueState);
 
   const nextDisabled = !values.formattedValue || values.formattedValue.includes('_');
 
-  const onSubmit = async () => {
+  /* const onSubmit = async () => {
     try {
       setIsLoading(true);
       await Axios.get(`/auth/sms?phone=${values.value}`);
@@ -32,7 +32,7 @@ export const EnterPhoneStep = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }; */
 
   return (
     <div className={styles.block}>
@@ -53,7 +53,7 @@ export const EnterPhoneStep = () => {
             onValueChange={({ formattedValue, value }) => setValues({ formattedValue, value })}
           />
         </div>
-        <Button disabled={isLoading || nextDisabled} onClick={onSubmit}>
+        <Button disabled={isLoading || nextDisabled} onClick={()=> {}}>
           {isLoading ? (
             'Sending...'
           ) : (

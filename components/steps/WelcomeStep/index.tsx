@@ -1,9 +1,9 @@
 
 import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button';
+import { Button } from '../../Button/Index';
 
 import styles from './WelcomeStep.module.scss';
-import { MainContext } from '../../../pages';
+//import { MainContext } from '../../../pages';
 import React from 'react';
 
 export const WelcomeStep = () => {

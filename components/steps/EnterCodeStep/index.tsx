@@ -3,14 +3,14 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { WhiteBlock } from '../../WhiteBlock';
 import { StepInfo } from '../../StepInfo';
-import { Axios } from '../../../core/axios';
+//import { Axios } from '../../../core/axios';
 
 import styles from './EnterPhoneStep.module.scss';
-import { MainContext } from '../../../pages';
+//import { MainContext } from '../../../pages';
 
 export const EnterCodeStep = () => {
   const router = useRouter();
-  const { userData } = React.useContext(MainContext);
+  //const { userData } = React.useContext(MainContext);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [codes, setCodes] = React.useState(['', '', '', '']);
 
@@ -30,7 +30,7 @@ export const EnterCodeStep = () => {
   };
 
   const onSubmit = async (code: string) => {
-    try {
+    /* try {
       setIsLoading(true);
       await Axios.post(`/auth/sms/activate`, {
         code,
@@ -40,9 +40,9 @@ export const EnterCodeStep = () => {
     } catch (error) {
       alert('Ошибка при активации!');
       setCodes(['', '', '', '']);
-    }
+    } */
 
-    setIsLoading(false);
+    setIsLoading(true);
   };
 
   return (
