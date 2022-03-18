@@ -6,10 +6,10 @@ import { StepInfo } from '../../StepInfo';
 
 import styles from './GitHubStep.module.scss';
 import React from 'react';
-//import { MainContext, UserData } from '../../../pages';
+import { MainContext } from '../../../pages';
 
 export const GitHubStep: React.FC = () => {
-  //const { onNextStep, setUserData } = React.useContext(MainContext);
+  const { onNextStep } = React.useContext(MainContext);
 
   const onClickAuth = () => {
     window.open(
@@ -37,7 +37,7 @@ export const GitHubStep: React.FC = () => {
       <StepInfo icon="/static/connect.png" title="Do you want import info from GitHub?" />
       <WhiteBlock className={clsx('m-auto mt-40', styles.whiteBlock)}>
         <Button
-          onClick={onClickAuth}
+          onClick={onNextStep}
           className={clsx(styles.button, 'd-i-flex align-items-center')}>
           <img className="d-ib mr-10" src="/static/github.svg" />
           Import from GitHub

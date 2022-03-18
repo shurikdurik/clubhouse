@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { WhiteBlock } from '../../WhiteBlock';
 import { StepInfo } from '../../StepInfo';
-//import { Axios } from '../../../core/axios';
+import { Axios } from '../../../core/axios';
 
 import styles from './EnterPhoneStep.module.scss';
 //import { MainContext } from '../../../pages';
@@ -30,19 +30,16 @@ export const EnterCodeStep = () => {
   };
 
   const onSubmit = async (code: string) => {
-    /* try {
+    try {
       setIsLoading(true);
-      await Axios.post(`/auth/sms/activate`, {
-        code,
-        user: userData,
-      });
-      router.push('/rooms');
+      await Axios.get('/room');
+      router.push('/room')
     } catch (error) {
       alert('Ошибка при активации!');
       setCodes(['', '', '', '']);
-    } */
+    }
 
-    setIsLoading(true);
+    setIsLoading(false);
   };
 
   return (

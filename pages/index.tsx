@@ -15,15 +15,26 @@ const stepsCopmponents = {
   5: EnterCodeStep,
 }
 
+type MainContextTypes = {
+  onNextStep: () => void;
+  step: number;
+}
+
+export const MainContext = React.createContext<MainContextTypes>({} as MainContextTypes)
+
 export default function Home() {
 
-  const [step, setStep] = useState<number>(5)
+  const [step, setStep] = useState<number>(0)
 
   const Step = stepsCopmponents[step]
 
+  const onNextStep = () => {
+    setStep((prev) => prev + 1)
+  }
+
   return (
-    <div>
+    <MainContext.Provider value={{step, onNextStep }}>
       <Step />
-    </div>
+    </MainContext.Provider>
   )
 }

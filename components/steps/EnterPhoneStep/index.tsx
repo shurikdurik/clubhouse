@@ -2,11 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 import NumberFormat from 'react-number-format';
 import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button/Index';
+import { Button } from '../../Button';
 import { StepInfo } from '../../StepInfo';
 
 import styles from './EnterPhoneStep.module.scss';
-//import { MainContext } from '../../../pages';
+import { MainContext } from '../../../pages';
 //import { Axios } from '../../../core/axios';
 
 type InputValueState = {
@@ -15,7 +15,7 @@ type InputValueState = {
 };
 
 export const EnterPhoneStep = () => {
-  //const { onNextStep, setFieldValue } = React.useContext(MainContext);
+  const { onNextStep } = React.useContext(MainContext);
   const [isLoading, setIsLoading] = React.useState(false);
   const [values, setValues] = React.useState<InputValueState>({} as InputValueState);
 
@@ -53,7 +53,7 @@ export const EnterPhoneStep = () => {
             onValueChange={({ formattedValue, value }) => setValues({ formattedValue, value })}
           />
         </div>
-        <Button disabled={isLoading || nextDisabled} onClick={()=> {}}>
+        <Button disabled={isLoading || nextDisabled} onClick={onNextStep}>
           {isLoading ? (
             'Sending...'
           ) : (

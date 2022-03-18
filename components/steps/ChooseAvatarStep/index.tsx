@@ -1,13 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
 import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button/Index';
+import { Button } from '../../Button';
 import { StepInfo } from '../../StepInfo';
 import { Avatar } from '../../Avatar';
 
 import styles from './ChooseAvatarStep.module.scss';
-/* import { MainContext } from '../../../pages';
-import { Axios } from '../../../core/axios'; */
+import { MainContext } from '../../../pages';
+import { Axios } from '../../../core/axios';
 
 /* const uploadFile = async (file: File): Promise<{ url: string }> => {
   const formData = new FormData();
@@ -24,7 +24,7 @@ import { Axios } from '../../../core/axios'; */
 }; */
 
 export const ChooseAvatarStep: React.FC = () => {
-  //const { onNextStep, setFieldValue, userData } = React.useContext(MainContext);
+  const { onNextStep } = React.useContext(MainContext);
   /* const avatarLetters = userData.fullname
     .split(' ')
     .map((s) => s[0])
@@ -63,7 +63,7 @@ export const ChooseAvatarStep: React.FC = () => {
           </label>
         </div>
         <input id="image" ref={inputFileRef} type="file" hidden />
-        <Button onClick={handleChangeImage}>
+        <Button onClick={onNextStep}>
           Next
           <img className="d-ib ml-10" src="/static/arrow.svg" />
         </Button>
