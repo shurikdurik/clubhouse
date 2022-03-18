@@ -15,6 +15,17 @@ const stepsCopmponents = {
   5: EnterCodeStep,
 }
 
+export type UserData = {
+  id: number;
+  fullname: string;
+  avatarUrl: string;
+  isActive: number;
+  username: string;
+  phone: string;
+  token?: string;
+};
+
+
 type MainContextTypes = {
   onNextStep: () => void;
   step: number;

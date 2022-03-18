@@ -32,8 +32,8 @@ export const EnterCodeStep = () => {
   const onSubmit = async (code: string) => {
     try {
       setIsLoading(true);
-      await Axios.get('/room');
-      router.push('/room')
+      await Axios.get('/rooms');
+      router.push('/rooms')
     } catch (error) {
       alert('Ошибка при активации!');
       setCodes(['', '', '', '']);
