@@ -1,12 +1,12 @@
-import React from 'react';
-import clsx from 'clsx';
-import NumberFormat from 'react-number-format';
-import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button';
-import { StepInfo } from '../../StepInfo';
+import React from "react";
+import clsx from "clsx";
+import NumberFormat from "react-number-format";
+import { WhiteBlock } from "../../WhiteBlock";
+import { Button } from "../../Button";
+import { StepInfo } from "../../StepInfo";
 
-import styles from './EnterPhoneStep.module.scss';
-import { MainContext } from '../../../pages';
+import styles from "./EnterPhoneStep.module.scss";
+import { MainContext } from "../../../pages";
 //import { Axios } from '../../../core/axios';
 
 type InputValueState = {
@@ -17,9 +17,12 @@ type InputValueState = {
 export const EnterPhoneStep = () => {
   const { onNextStep } = React.useContext(MainContext);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [values, setValues] = React.useState<InputValueState>({} as InputValueState);
+  const [values, setValues] = React.useState<InputValueState>(
+    {} as InputValueState
+  );
 
-  const nextDisabled = !values.formattedValue || values.formattedValue.includes('_');
+  const nextDisabled =
+    !values.formattedValue || values.formattedValue.includes("_");
 
   /* const onSubmit = async () => {
     try {
@@ -41,8 +44,8 @@ export const EnterPhoneStep = () => {
         title="Enter your phone #"
         description="We will send you a confirmation code"
       />
-      <WhiteBlock className={clsx('m-auto mt-30', styles.whiteBlock)}>
-        <div className={clsx('mb-30', styles.input)}>
+      <WhiteBlock className={clsx("m-auto mt-30", styles.whiteBlock)}>
+        <div className={clsx("mb-30", styles.input)}>
           <img src="/static/russian-flag.png" alt="flag" width={24} />
           <NumberFormat
             className="field"
@@ -50,12 +53,14 @@ export const EnterPhoneStep = () => {
             mask="_"
             placeholder="+7 (999) 333-22-11"
             value={values.value}
-            onValueChange={({ formattedValue, value }) => setValues({ formattedValue, value })}
+            onValueChange={({ formattedValue, value }) =>
+              setValues({ formattedValue, value })
+            }
           />
         </div>
         <Button disabled={isLoading || nextDisabled} onClick={onNextStep}>
           {isLoading ? (
-            'Sending...'
+            "Sending..."
           ) : (
             <>
               Next
@@ -63,9 +68,9 @@ export const EnterPhoneStep = () => {
             </>
           )}
         </Button>
-        <p className={clsx(styles.policyText, 'mt-30')}>
-          By entering your number, you’re agreeing to our Terms of Service and Privacy Policy.
-          Thanks!
+        <p className={clsx(styles.policyText, "mt-30")}>
+          By entering your number, you’re agreeing to our Terms of Service and
+          Privacy Policy. Thanks!
         </p>
       </WhiteBlock>
     </div>

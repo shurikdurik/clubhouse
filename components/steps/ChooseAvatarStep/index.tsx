@@ -1,13 +1,13 @@
-import React from 'react';
-import clsx from 'clsx';
-import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button';
-import { StepInfo } from '../../StepInfo';
-import { Avatar } from '../../Avatar';
+import React from "react";
+import clsx from "clsx";
+import { WhiteBlock } from "../../WhiteBlock";
+import { Button } from "../../Button";
+import { StepInfo } from "../../StepInfo";
+import { Avatar } from "../../Avatar";
 
-import styles from './ChooseAvatarStep.module.scss';
-import { MainContext } from '../../../pages';
-import { Axios } from '../../../core/axios';
+import styles from "./ChooseAvatarStep.module.scss";
+import { MainContext } from "../../../pages";
+import { Axios } from "../../../core/axios";
 
 /* const uploadFile = async (file: File): Promise<{ url: string }> => {
   const formData = new FormData();
@@ -30,19 +30,19 @@ export const ChooseAvatarStep: React.FC = () => {
     .map((s) => s[0])
     .join('');
        */
-  const [avatarUrl, setAvatarUrl] = React.useState<string>('');
+  const [avatarUrl, setAvatarUrl] = React.useState<string>("");
 
   const inputFileRef = React.useRef<HTMLInputElement>(null);
 
   const handleChangeImage = (event: React.ChangeEvent<any>): void => {
     const file = event.target.files[0];
-    const imageUrg = URL.createObjectURL(file)
+    const imageUrg = URL.createObjectURL(file);
     setAvatarUrl(imageUrg);
   };
 
   React.useEffect(() => {
     if (inputFileRef.current) {
-      inputFileRef.current.addEventListener<any>('change', handleChangeImage);
+      inputFileRef.current.addEventListener<any>("change", handleChangeImage);
     }
   }, []);
 
@@ -53,9 +53,13 @@ export const ChooseAvatarStep: React.FC = () => {
         title="Okay, Alex Iats!"
         description="How’s this photo?"
       />
-      <WhiteBlock className={clsx('m-auto mt-40', styles.whiteBlock)}>
+      <WhiteBlock className={clsx("m-auto mt-40", styles.whiteBlock)}>
         <div className={styles.avatar}>
-          <Avatar width="120px" height="120px"  src={avatarUrl} /* letters={avatarLetters} */ />
+          <Avatar
+            width="120px"
+            height="120px"
+            src={avatarUrl} /* letters={avatarLetters} */
+          />
         </div>
         <div className="mb-30">
           <label htmlFor="image" className="link cup">

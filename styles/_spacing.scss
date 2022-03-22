@@ -1,8 +1,8 @@
 $sides: (
-  'top': 't',
-  'right': 'r',
-  'bottom': 'b',
-  'left': 'l',
+  "top": "t",
+  "right": "r",
+  "bottom": "b",
+  "left": "l",
 );
 
 @each $side, $letter in $sides {

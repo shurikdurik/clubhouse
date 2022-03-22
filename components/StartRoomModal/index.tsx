@@ -1,12 +1,12 @@
-import clsx from 'clsx';
-import { useRouter } from 'next/router';
-import React from 'react';
+import clsx from "clsx";
+import { useRouter } from "next/router";
+import React from "react";
 //import { Room, RoomType } from '../../api/RoomApi';
 //import { useAsyncAction } from '../../hooks/useAction';
 //import { fetchCreateRoom } from '../../redux/slices/roomsSlice';
-import { Button } from '../Button';
+import { Button } from "../Button";
 
-import styles from './StartRoomModal.module.scss';
+import styles from "./StartRoomModal.module.scss";
 
 interface StartRoomModalProps {
   onClose: () => void;
@@ -14,8 +14,8 @@ interface StartRoomModalProps {
 
 export const StartRoomModal: React.FC<StartRoomModalProps> = ({ onClose }) => {
   const router = useRouter();
-  const [title, setTitle] = React.useState<string>('');
-  const [type, setType] = React.useState('open');
+  const [title, setTitle] = React.useState<string>("");
+  const [type, setType] = React.useState("open");
   //const createRoom = useAsyncAction<any, Room>(fetchCreateRoom);
 
   /* const onSubmit = async () => {
@@ -50,21 +50,45 @@ export const StartRoomModal: React.FC<StartRoomModalProps> = ({ onClose }) => {
           <h3>Room type</h3>
           <div className="d-flex justify-content-between">
             <div
-              onClick={() => setType('open')}
-              className={clsx(styles.roomType, { [styles.roomTypeActive]: type === 'open' })}>
-              <img width="70px" height="70px" src="/static/room-type-1.png" alt="Room type" />
+              onClick={() => setType("open")}
+              className={clsx(styles.roomType, {
+                [styles.roomTypeActive]: type === "open",
+              })}
+            >
+              <img
+                width="70px"
+                height="70px"
+                src="/static/room-type-1.png"
+                alt="Room type"
+              />
               <h5>Open</h5>
             </div>
             <div
-              onClick={() => setType('social')}
-              className={clsx(styles.roomType, { [styles.roomTypeActive]: type === 'social' })}>
-              <img width="70px" height="70px" src="/static/room-type-2.png" alt="Room type" />
+              onClick={() => setType("social")}
+              className={clsx(styles.roomType, {
+                [styles.roomTypeActive]: type === "social",
+              })}
+            >
+              <img
+                width="70px"
+                height="70px"
+                src="/static/room-type-2.png"
+                alt="Room type"
+              />
               <h5>Social</h5>
             </div>
             <div
-              onClick={() => setType('closed')}
-              className={clsx(styles.roomType, { [styles.roomTypeActive]: type === 'closed' })}>
-              <img width="70px" height="70px" src="/static/room-type-3.png" alt="Room type" />
+              onClick={() => setType("closed")}
+              className={clsx(styles.roomType, {
+                [styles.roomTypeActive]: type === "closed",
+              })}
+            >
+              <img
+                width="70px"
+                height="70px"
+                src="/static/room-type-3.png"
+                alt="Room type"
+              />
               <h5>Closed</h5>
             </div>
           </div>
@@ -73,7 +97,12 @@ export const StartRoomModal: React.FC<StartRoomModalProps> = ({ onClose }) => {
         <div className="text-center">
           <h3>Start a room open to everyone</h3>
           <Button onClick={() => {}} color="green">
-            <img width="18px" height="18px" src="/static/celebration.png" alt="Celebration" />
+            <img
+              width="18px"
+              height="18px"
+              src="/static/celebration.png"
+              alt="Celebration"
+            />
             Lets go
           </Button>
         </div>

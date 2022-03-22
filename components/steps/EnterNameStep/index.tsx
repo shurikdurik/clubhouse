@@ -1,16 +1,16 @@
-import clsx from 'clsx';
-import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button';
-import { StepInfo } from '../../StepInfo';
+import clsx from "clsx";
+import { WhiteBlock } from "../../WhiteBlock";
+import { Button } from "../../Button";
+import { StepInfo } from "../../StepInfo";
 
-import styles from './EnterNameStep.module.scss';
-import React from 'react';
-import { MainContext } from '../../../pages';
-import { Avatar } from '../../Avatar';
+import styles from "./EnterNameStep.module.scss";
+import React from "react";
+import { MainContext } from "../../../pages";
+import { Avatar } from "../../Avatar";
 
 export const EnterNameStep = () => {
   const { onNextStep } = React.useContext(MainContext);
-  const [inputValue, setInputValue] = React.useState<string>('');
+  const [inputValue, setInputValue] = React.useState<string>("");
   const nextDisabled = !inputValue;
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +28,7 @@ export const EnterNameStep = () => {
         title="What’s your full name?"
         description="People use real names on Clubhouse :) Thnx!"
       />
-      <WhiteBlock className={clsx('m-auto', styles.whiteBlock)}>
+      <WhiteBlock className={clsx("m-auto", styles.whiteBlock)}>
         {/* <Avatar src={userData.avatarUrl} width="120px" height="120px" /> */}
         <div className="mt-30 mb-30">
           <input
@@ -38,10 +38,7 @@ export const EnterNameStep = () => {
             placeholder="Enter fullname"
           />
         </div>
-        <Button 
-        disabled={nextDisabled} 
-        onClick={onClickNextStep}
-        >
+        <Button disabled={nextDisabled} onClick={onClickNextStep}>
           Next
           <img className="d-ib ml-10" src="/static/arrow.svg" />
         </Button>

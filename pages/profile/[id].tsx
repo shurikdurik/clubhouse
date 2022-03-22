@@ -1,10 +1,10 @@
-import { GetServerSideProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
-import React from 'react';
+import { GetServerSideProps, NextPage } from "next";
+import { useRouter } from "next/router";
+import React from "react";
 //import { UserData } from '..';
 //import { Api } from '../../api';
-import { Header } from '../../components/Header';
-import { Profile } from '../../components/Profile';
+import { Header } from "../../components/Header";
+import { Profile } from "../../components/Profile";
 //import { wrapper } from '../../redux/store';
 //import { checkAuth } from '../../utils/checkAuth';
 
@@ -17,12 +17,14 @@ const ProfilePage: NextPage = () => {
 
   return (
     <>
-     <Header />
+      <Header />
       <div className="container mt-30">
         <Profile
-          avatarUrl={'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?cs=srgb&dl=pexels-suliman-sallehi-1704488.jpg&fm=jpg'}
-          fullname={'Sasha Iatseniuk'}
-          username={'shurik_durik'}
+          avatarUrl={
+            "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?cs=srgb&dl=pexels-suliman-sallehi-1704488.jpg&fm=jpg"
+          }
+          fullname={"Sasha Iatseniuk"}
+          username={"shurik_durik"}
           about="Test info"
         />
       </div>

@@ -1,11 +1,11 @@
-import clsx from 'clsx';
-import Link from 'next/link';
-import React from 'react';
-import { Avatar } from '../Avatar';
-import { BackButton } from '../BackButton';
-import { Button } from '../Button';
+import clsx from "clsx";
+import Link from "next/link";
+import React from "react";
+import { Avatar } from "../Avatar";
+import { BackButton } from "../BackButton";
+import { Button } from "../Button";
 
-import styles from './Profile.module.scss';
+import styles from "./Profile.module.scss";
 
 interface ProfileProps {
   fullname: string;
@@ -14,7 +14,12 @@ interface ProfileProps {
   about: string;
 }
 
-export const Profile: React.FC<ProfileProps> = ({ fullname, username, avatarUrl, about }) => {
+export const Profile: React.FC<ProfileProps> = ({
+  fullname,
+  username,
+  avatarUrl,
+  about,
+}) => {
   return (
     <>
       <Link href="/rooms">
@@ -28,7 +33,7 @@ export const Profile: React.FC<ProfileProps> = ({ fullname, username, avatarUrl,
           <Avatar src={avatarUrl} width="100px" height="100px" />
           <div className="d-flex flex-column ml-30 mr-30">
             <h2 className="mt-0 mb-0">{fullname}</h2>
-            <h3 className={clsx(styles.username, 'mt-0 mb-0')}>@{username}</h3>
+            <h3 className={clsx(styles.username, "mt-0 mb-0")}>@{username}</h3>
           </div>
         </div>
         <Button className={styles.followButton} color="blue">
