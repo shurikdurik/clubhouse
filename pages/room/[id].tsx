@@ -7,9 +7,9 @@ import { Axios } from "../../core/axios";
 //import { wrapper } from '../../redux/store';
 //import { checkAuth } from '../../utils/checkAuth';
 
-export default function RoomPage({room}) {
+export default function RoomPage({ room }) {
   console.log(room);
-  
+
   return (
     <>
       <Header />
@@ -22,13 +22,13 @@ export default function RoomPage({room}) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const {id} = ctx.query
+  const { id } = ctx.query;
   try {
     const { data } = await Axios.get("/rooms.json");
-    const room = data.find(el => el.id === id)
+    const room = data.find((el) => el.id === id);
     return {
       props: {
-        room
+        room,
       },
     };
   } catch (err) {
@@ -39,7 +39,6 @@ export const getServerSideProps = async (ctx) => {
     };
   }
 };
-
 
 /* export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   try {

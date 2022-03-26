@@ -1,14 +1,26 @@
-import express from 'express';
-import { ppid } from 'process';
+import express from "express";
+import dotenv from "dotenv";
+
+dotenv.config({
+  path: "server/.env",
+});
+
+import "./core/db";
+
+import { passport } from "./core/passport";
 
 const app = express();
 
-app.get('/test', (req, res) => {
-    res.send('Hello')
-})
+app.get("/auth/github", passport.authenticate("github"));
+
+app.get(
+  "/auth/github/callback",
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  (req, res) => {
+    res.send();
+  }
+);
 
 app.listen(3001, () => {
-
-    console.log('Server runned!');
-    
-})
+  console.log("Server runned!");
+});
